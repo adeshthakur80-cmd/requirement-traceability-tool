@@ -1,9 +1,6 @@
-# 🔗 Requirement-to-Test Traceability Tool (RTM)
-**Problem Statement 80 | Prototype Implementation**
+Requirement-to-Test Traceability Tool (RTM)
 
----
-
-## 📌 1. Problem Overview
+1. Problem Overview
 A common pitfall in software engineering is the disconnect between specification and verification.
 This tool automates the **Requirements Traceability Matrix (RTM)** workflow:
 1. Connects requirements directly to test cases (M:N mapping).
@@ -11,9 +8,7 @@ This tool automates the **Requirements Traceability Matrix (RTM)** workflow:
 3. Automatically identifies **Coverage Gaps** (untested requirements) and **Orphan Tests** (tests without requirements).
 4. Generates an interactive, filterable Traceability Matrix with instant CSV export.
 
----
-
-## 🛠️ 2. Technical Architecture & Tech Stack
+2. Technical Architecture & Tech Stack
 
 | Component | Technology | Rationale |
 | :--- | :--- | :--- |
@@ -22,14 +17,12 @@ This tool automates the **Requirements Traceability Matrix (RTM)** workflow:
 | **Database** | **SQLite3** | Embedded, zero-configuration relational database with foreign key cascading. |
 | **Visualizations** | **Plotly Express** | Donut charts for coverage and interactive bar charts for test verdicts. |
 
-### Relational Schema (SQLite):
+Relational Schema (SQLite):
 - `requirements`: `(req_id PK, title, description, priority, module, created_at)`
 - `test_cases`: `(test_id PK, title, description, test_type, execution_status, execution_notes, last_executed)`
 - `req_test_links`: `(req_id FK, test_id FK, linked_at)` — Composite PK supporting many-to-many relationships.
 
----
-
-## 🚀 3. Features Implemented
+3. Features Implemented
 
 - [x] **Executive Dashboard:** Live KPI metrics (Total Reqs, Total Tests, Coverage %, Pass Rate %) with Donut & Bar charts.
 - [x] **Critical Gap Alerts:** Automatic banner highlighting untested High-Priority requirements and failing tests.
@@ -42,24 +35,20 @@ This tool automates the **Requirements Traceability Matrix (RTM)** workflow:
 - [x] **Data Export:** Instant 1-click download of the complete RTM as a CSV file.
 - [x] **1-Click Demo Reset:** Built-in College Login System scenario ready for instant demonstration.
 
----
+4. How to Run the Prototype
 
-## 🏃 4. How to Run the Prototype
-
-### Run the Web Dashboard:
+Run the Web Dashboard:
 ```bash
 python -m streamlit run app.py
 ```
 Open your browser at `http://localhost:8501`.
 
-### Run Automated Unit Tests:
+Run Automated Unit Tests:
 ```bash
 python test_traceability.py
 ```
 
----
-
-## 🎓 5. Sample Demonstration Scenario (College Login System)
+5. Sample Demonstration Scenario (College Login System)
 
 | Requirement | Priority | Linked Tests | Test Results | Coverage Status | Overall Outcome |
 | :--- | :--- | :--- | :--- | :--- | :--- |
